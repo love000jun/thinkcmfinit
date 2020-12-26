@@ -27,6 +27,4 @@ use cmf\controller\AdminBaseController;
  */
 class AdminIndexController extends AdminBaseController
 {
-
-
 }

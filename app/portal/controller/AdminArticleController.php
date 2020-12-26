@@ -68,6 +68,7 @@ class AdminArticleController extends AdminBaseController
         return $this->fetch();
     }
 
+
     /**
      * 添加文章
      * @adminMenu(
@@ -160,7 +161,6 @@ class AdminArticleController extends AdminBaseController
 
             $this->success('添加成功!', url('AdminArticle/edit', ['id' => $portalPostModel->id]));
         }
-
     }
 
     /**
@@ -263,7 +263,6 @@ class AdminArticleController extends AdminBaseController
             hook('portal_admin_after_save_article', $hookParam);
 
             $this->success('保存成功!');
-
         }
     }
 
@@ -310,7 +309,6 @@ class AdminArticleController extends AdminBaseController
                 Db::name('recycleBin')->insert($data);
             }
             $this->success("删除成功！", '');
-
         }
 
         if (isset($param['ids'])) {
@@ -364,7 +362,6 @@ class AdminArticleController extends AdminBaseController
             $portalPostModel->where('id', 'in', $ids)->update(['post_status' => 0]);
             $this->success("取消发布成功！", '');
         }
-
     }
 
     /**
@@ -391,7 +388,6 @@ class AdminArticleController extends AdminBaseController
             $portalPostModel->where('id', 'in', $ids)->update(['is_top' => 1]);
 
             $this->success("置顶成功！", '');
-
         }
 
         if (isset($_POST['ids']) && isset($param["no"])) {
@@ -427,7 +423,6 @@ class AdminArticleController extends AdminBaseController
             $portalPostModel->where('id', 'in', $ids)->update(['recommended' => 1]);
 
             $this->success("推荐成功！", '');
-
         }
         if (isset($param['ids']) && isset($param["no"])) {
             $ids = $this->request->param('ids/a');
@@ -435,7 +430,6 @@ class AdminArticleController extends AdminBaseController
             $portalPostModel->where('id', 'in', $ids)->update(['recommended' => 0]);
 
             $this->success("取消推荐成功！", '');
-
         }
     }
 

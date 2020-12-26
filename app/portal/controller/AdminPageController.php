@@ -53,6 +53,7 @@ class AdminPageController extends AdminBaseController
         return $this->fetch();
     }
 
+
     /**
      * 添加页面
      * @adminMenu(
@@ -121,7 +122,6 @@ class AdminPageController extends AdminBaseController
         $portalPostModel = new PortalPostModel();
         $portalPostModel->adminAddPage($data['post']);
         $this->success(lang('ADD_SUCCESS'), url('AdminPage/edit', ['id' => $portalPostModel->id]));
-
     }
 
     /**
@@ -205,7 +205,6 @@ class AdminPageController extends AdminBaseController
         $portalPostModel->adminEditPage($data['post']);
 
         $this->success(lang('SAVE_SUCCESS'));
-
     }
 
     /**
@@ -233,7 +232,5 @@ class AdminPageController extends AdminBaseController
         } else {
             $this->error(lang('DELETE_FAILED'));
         }
-
     }
-
 }
