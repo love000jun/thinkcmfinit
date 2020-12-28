@@ -46,3 +46,4 @@ CREATE TABLE `cmf_auth_rule` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='权限规则表';
 
 
+

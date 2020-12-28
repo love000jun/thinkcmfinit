@@ -31,3 +31,4 @@ require CMF_ROOT . 'vendor/thinkphp/base.php';
 
 // 执行应用并响应
 Container::get('app', [APP_PATH])->run()->send();
+
