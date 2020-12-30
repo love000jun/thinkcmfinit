@@ -24,8 +24,8 @@ class PortalCategoryValidate extends Validate
     ];
 
     protected $scene = [
-//        'add'  => ['user_login,user_pass,user_email'],
-//        'edit' => ['user_login,user_email'],
+        //        'add'  => ['user_login,user_pass,user_email'],
+        //        'edit' => ['user_login,user_email'],
     ];
 
     // 自定义验证规则
@@ -50,6 +50,5 @@ class PortalCategoryValidate extends Validate
         } else {
             return "别名已经存在!";
         }
-
     }
 }

@@ -18,4 +18,3 @@ return [
     'DELETE_FAILED'    => '删除失败',
     'ADD_FAILED'       => '添加失败',
 ];
-

@@ -19,7 +19,6 @@ use think\Db;
  */
 class PortalPostModel extends Model
 {
-
     protected $type = [
         'more' => 'array',
     ];
@@ -127,7 +126,6 @@ class PortalPostModel extends Model
         $this->addTags($keywords, $this->id);
 
         return $this;
-
     }
 
     /**
@@ -182,7 +180,6 @@ class PortalPostModel extends Model
         $this->addTags($keywords, $data['id']);
 
         return $this;
-
     }
 
     /**
@@ -224,7 +221,6 @@ class PortalPostModel extends Model
                     }
 
                     array_push($tagIds, $tagId);
-
                 }
             }
 
@@ -247,8 +243,6 @@ class PortalPostModel extends Model
             if (!empty($data)) {
                 Db::name('portal_tag_post')->insertAll($data);
             }
-
-
         } else {
             Db::name('portal_tag_post')->where('post_id', $articleId)->delete();
         }
@@ -297,8 +291,6 @@ class PortalPostModel extends Model
                     Db::rollback();
                 }
                 return $transStatus;
-
-
             } else {
                 return false;
             }
@@ -315,7 +307,6 @@ class PortalPostModel extends Model
                     $recycleData[$key]['create_time'] = time();
                     $recycleData[$key]['table_name']  = 'portal_post';
                     $recycleData[$key]['name']        = $value['post_title'];
-
                 }
 
                 Db::startTrans(); //开启事务
@@ -332,21 +323,15 @@ class PortalPostModel extends Model
                     $transStatus = true;
                     // 提交事务
                     Db::commit();
-
                 } catch (\Exception $e) {
 
                     // 回滚事务
                     Db::rollback();
-
-
                 }
                 return $transStatus;
-
-
             } else {
                 return false;
             }
-
         } else {
             return false;
         }
@@ -370,7 +355,6 @@ class PortalPostModel extends Model
         $this->allowField(true)->data($data, true)->save();
 
         return $this;
-
     }
 
     /**
@@ -396,5 +380,4 @@ class PortalPostModel extends Model
         $routeModel->getRoutes(true);
         return $this;
     }
-
 }

@@ -24,9 +24,10 @@ class AdminPageValidate extends Validate
     ];
 
     protected $scene = [
-//        'add'  => ['user_login,user_pass,user_email'],
-//        'edit' => ['user_login,user_email'],
+        //        'add'  => ['user_login,user_pass,user_email'],
+        //        'edit' => ['user_login,user_email'],
     ];
+
 
     // 自定义验证规则
     protected function checkAlias($value, $rule, $data)
@@ -46,6 +47,5 @@ class AdminPageValidate extends Validate
         } else {
             return "别名已经存在!";
         }
-
     }
 }
