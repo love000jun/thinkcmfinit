@@ -34,3 +34,4 @@ Container::get('app', [APP_PATH])->initialize();
 
 // 控制台初始化
 Console::init();
+
