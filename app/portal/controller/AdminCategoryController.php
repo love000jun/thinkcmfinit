@@ -51,8 +51,10 @@ class AdminCategoryController extends AdminBaseController
             $categoryTree = $portalCategoryModel->adminCategoryTableTree();
             $this->assign('category_tree', $categoryTree);
         } else {
-            $categories = $portalCategoryModel->where('name', 'like', "%{$keyword}%")
-                ->where('delete_time', 0)->select();
+            $categories = $portalCategoryModel
+                ->where('name', 'like', "%{$keyword}%")
+                ->where('delete_time', 0)
+                ->select();
             $this->assign('categories', $categories);
         }
 
@@ -184,7 +186,6 @@ class AdminCategoryController extends AdminBaseController
         } else {
             $this->error('操作错误!');
         }
-
     }
 
     /**
@@ -312,7 +313,6 @@ tpl;
             $portalCategoryModel->where('id', 'in', $ids)->update(['status' => 0]);
             $this->success("更新成功！");
         }
-
     }
 
     /**

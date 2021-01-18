@@ -33,12 +33,13 @@ class PageApi
         //返回的数据必须是数据集或数组,item里必须包括id,name,如果想表示层级关系请加上 parent_id
         return $portalPostModel->field('id,post_title AS name')
             ->where($where)
-            ->where('published_time',['<', time()], ['> time', 0],'and')
+            ->where('published_time', ['<', time()], ['> time', 0], 'and')
             ->where(function (Query $query) use ($param) {
                 if (!empty($param['keyword'])) {
                     $query->where('post_title', 'like', "%{$param['keyword']}%");
                 }
-            })->select();
+            })
+            ->select();
     }
 
     /**
@@ -57,7 +58,7 @@ class PageApi
 
 
         $pages = $portalPostModel->field('id,post_title AS name')
-            ->where('published_time',['<', time()], ['> time', 0],'and')
+            ->where('published_time', ['<', time()], ['> time', 0], 'and')
             ->where($where)->select();
 
         $return = [
@@ -66,11 +67,10 @@ class PageApi
                 'param'  => [
                     'id' => 'id'
                 ]
-            ],//url规则
+            ], //url规则
             'items' => $pages //每个子项item里必须包括id,name,如果想表示层级关系请加上 parent_id
         ];
 
         return $return;
     }
-
 }

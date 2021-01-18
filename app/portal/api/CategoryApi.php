@@ -35,7 +35,8 @@ class CategoryApi
                 if (!empty($param['keyword'])) {
                     $query->where('name', 'like', "%{$param['keyword']}%");
                 }
-            })->select();
+            })
+            ->select();
     }
 
     /**
@@ -57,11 +58,10 @@ class CategoryApi
                 'param'  => [
                     'id' => 'id'
                 ]
-            ],//url规则
+            ], //url规则
             'items' => $categories //每个子项item里必须包括id,name,如果想表示层级关系请加上 parent_id
         ];
 
         return $return;
     }
-
 }
